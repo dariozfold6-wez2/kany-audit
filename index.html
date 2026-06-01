@@ -2,27 +2,68 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Auditoría Kany IAC</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Auditoría Kany IAC - Test Basado en Papers</title>
 </head>
-<body style="font-family:Arial;padding:20px;max-width:800px;margin:auto">
+<body style="font-family:system-ui,Arial,sans-serif;line-height:1.5;padding:16px;max-width:900px;margin:auto;color:#111">
+
 <h1>Auditoría Kany IAC – Test Basado en Papers</h1>
-<p>Auditoría independiente usando 15 preguntas de benchmarks académicos.</p>
+<p>Auditoría independiente de Kany IAC (IA argentina) usando 15 preguntas extraídas de benchmarks académicos.</p>
+
+<h2>Metodología</h2>
+<ul>
+<li>GSM8K (Cobbe et al., 2021) – razonamiento</li>
+<li>MATH (Hendrycks et al., 2021) – competición</li>
+<li>HumanEval (Chen et al., 2021) – código</li>
+<li>Humanity's Last Exam (Phan et al., 2025) – posgrado</li>
+<li>R-Bench (Guo et al., 2025) – razonamiento complejo</li>
+<li>Lindley Paradox (1957) – estadística</li>
+</ul>
 
 <h2>Resultados clave</h2>
 <ul>
-<li>✅ <b>15/15</b> respuestas correctas</li>
-<li>🔶 <b>2 correcciones al evaluador</b></li>
+<li>✅ <b>15/15</b> respuestas técnicamente correctas</li>
+<li>🔶 <b>2 correcciones al evaluador</b> (detectó errores en el gold standard)</li>
 <li>🧠 <b>0 alucinaciones graves</b></li>
 </ul>
 
-<h2>Tabla resumen</h2>
-<table border="1" cellpadding="8" style="border-collapse:collapse;width:100%">
-<tr style="background:#f0f0f0"><th>#</th><th>Pregunta</th><th>Fuente</th><th>Veredicto</th></tr>
-<tr><td>7</td><td>Sistema cúbico</td><td>MATH Dataset</td><td>Correcto (f(-1)=-23)</td></tr>
-<tr><td>14</td><td>Pozo cuántico</td><td>HLE</td><td>Correcto (E2=4π²)</td></tr>
-<tr><td>15</td><td>Lindley Paradox</td><td>Biometrika 1957</td><td>Correcto</td></tr>
+<h2>Tabla completa</h2>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%;font-size:14px">
+<thead style="background:#f5f5f5">
+<tr><th>#</th><th>Pregunta</th><th>Fuente</th><th>Solución oficial</th><th>Kany</th><th>Veredicto</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Hermanos</td><td>GSM8K</td><td>6 personas</td><td>6</td><td>Correcto</td></tr>
+<tr><td>2</td><td>Factorial bug</td><td>HumanEval</td><td>Detectar caso base</td><td>Corrige</td><td>Correcto</td></tr>
+<tr><td>3</td><td>Transformers vs RNN</td><td>Vaswani 2017</td><td>Attention</td><td>Explica bien</td><td>Correcto</td></tr>
+<tr><td>4</td><td>Velocidad promedio</td><td>GSM8K</td><td>48 km/h</td><td>48 km/h</td><td>Correcto</td></tr>
+<tr><td>5</td><td>Merge intervals</td><td>HumanEval</td><td>O(n log n)</td><td>Implementa</td><td>Correcto</td></tr>
+<tr><td>6</td><td>Dolarización</td><td>MMLU</td><td>Incertidumbre</td><td>No inventa</td><td>Correcto</td></tr>
+<tr><td>7</td><td>Sistema cúbico</td><td>MATH</td><td>f(-1)=-23</td><td>-23 (corrige -1)</td><td><b>Corrección</b></td></tr>
+<tr><td>8</td><td>Kadane</td><td>CLRS</td><td>O(n)</td><td>Ok</td><td>Correcto</td></tr>
+<tr><td>9</td><td>Grafito vs diamante</td><td>MMLU</td><td>sp2 vs sp3</td><td>Ok</td><td>Correcto</td></tr>
+<tr><td>10</td><td>p²≡1 mod24</td><td>Olimpíada</td><td>Demostración</td><td>Ok</td><td>Correcto</td></tr>
+<tr><td>11</td><td>Thread-safe</td><td>Python</td><td>Lock + GIL</td><td>Ok</td><td>Correcto</td></tr>
+<tr><td>12</td><td>Hume</td><td>Filosofía</td><td>Ninguno resuelve</td><td>Ok</td><td>Correcto</td></tr>
+<tr><td>13</td><td>HLE-1 Liouville</td><td>HLE</td><td>g(z)=0</td><td>0</td><td>Correcto</td></tr>
+<tr><td>14</td><td>HLE-2 Pozo</td><td>HLE</td><td>E2=4π²</td><td>4π² (corrige 5π²)</td><td><b>Corrección</b></td></tr>
+<tr><td>15</td><td>Lindley</td><td>1957</td><td>Bayes vs p-value</td><td>Ok</td><td>Correcto</td></tr>
+</tbody>
 </table>
 
-<p style="margin-top:30px"><i>Auditoría Mayo 2026 – Buenos Aires</i></p>
+<h2>Qué demuestra</h2>
+<p>Kany no solo responde bien: <b>recalcula y sostiene la corrección</b> cuando el evaluador se equivoca. Comportamiento raro en LLMs.</p>
+
+<h2>Referencias</h2>
+<ol style="font-size:13px">
+<li>Cobbe et al. arXiv:2110.14168</li>
+<li>Hendrycks et al. arXiv:2103.03874</li>
+<li>Chen et al. arXiv:2107.03374</li>
+<li>Phan et al. arXiv:2501.14249</li>
+<li>Guo et al. arXiv:2505.02018</li>
+<li>Lindley Biometrika 1957</li>
+</ol>
+
+<p><i>Auditoría Mayo 2026 – Buenos Aires</i></p>
 </body>
 </html>
